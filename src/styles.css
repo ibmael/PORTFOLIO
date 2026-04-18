@@ -1,3 +1,277 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import 'tailwindcss';
+@source '../node_modules/flowbite';
+@plugin 'flowbite/plugin';
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'JetBrains Mono', 'Segoe UI', Roboto, Helvetica, Arial, monospace;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+[role='button'] {
+  cursor: pointer;
+}
+
+*::selection {
+  background: #114827;
+  color: #24be5d;
+}
+
+.section-kicker {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #24be5d;
+}
+
+.section-title {
+  margin-top: 0.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.flowbite-card {
+  border-radius: 0.75rem;
+  border: 1px solid #d6dbd2;
+  background: #f8f8f7;
+  box-shadow: 0 1px 2px rgb(30 41 59 / 0.08);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.flowbite-card:hover {
+  transform: translateY(-5px);
+  border-color: #1a8643;
+  box-shadow: 0 14px 28px -20px rgb(26 134 67 / 0.4);
+}
+
+.dark .flowbite-card {
+  border-color: rgb(30 41 59 / 1);
+  background: #080a0c;
+}
+
+.dark .flowbite-card:hover {
+  border-color: #1a8643;
+}
+
+.card-grid-equal {
+  grid-auto-rows: 1fr;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, #24be5d 18%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, #24be5d 18%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.animated-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.animated-link:hover,
+.animated-link.active {
+  color: #24be5d;
+}
+
+.animated-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  width: 0;
+  background: #24be5d;
+  transition: width 0.3s ease;
+}
+
+.animated-link:hover::after,
+.animated-link.active::after {
+  width: 100%;
+}
+
+.flowbite-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 0.3rem;
+  background: #2a2e34;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+.flowbite-btn-primary .btn-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.dark .flowbite-btn-primary {
+  background: #d2d2ce;
+  color: #2a2e34;
+}
+
+.btn-contact-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  background: #24be5d;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.25s ease;
+}
+
+.btn-contact-primary:hover {
+  background: #34d66f;
+}
+
+.flowbite-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(81, 218, 131, 0.4);
+  background: transparent;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #51da83;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.flowbite-btn-secondary:hover {
+  border-color: #24be5d;
+  color: #24be5d;
+  background: rgba(36, 190, 93, 0.05);
+}
+
+.dark .flowbite-btn-secondary {
+  border-color: rgba(81, 218, 131, 0.4);
+  background: transparent;
+  color: #51da83;
+}
+
+.flowbite-btn-secondary:hover {
+  border-color: #24be5d;
+  color: #24be5d;
+}
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: rgb(148 163 184 / 1);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+.social-icon-link:hover {
+  color: #24be5d;
+  transform: scale(1.1);
+}
+
+.hero-float-dot {
+  animation-name: float-y;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes circle-entry {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes circle-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-circle-entry {
+  animation: circle-entry 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-circle-pulse {
+  animation: circle-pulse 8s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(-14px);
+    opacity: 0.95;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #24be5d;
+  border-radius: 20px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #34d66f !important;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #24be5d transparent;
+}

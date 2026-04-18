@@ -1,0 +1,120 @@
+<section
+  id="home"
+  class="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-20 md:px-12 lg:px-24"
+>
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 bg-grid opacity-45 dark:opacity-30 md:block"
+  ></div>
+  <div class="relative z-10 mx-auto w-full max-w-5xl">
+    <div class="mb-6 w-fit animate-circle-entry">
+      <div class="relative animate-circle-pulse">
+        <div
+          class="absolute -inset-1 animate-pulse rounded-full bg-gradient-to-r from-[#24be5d] via-[#1f8f48] to-[#24be5d] opacity-35 blur-md"
+        ></div>
+        <div
+          class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-[#24be5d]/30 bg-[#24be5d]/10 shadow-lg md:h-32 md:w-32"
+        >
+          <img
+            src="/20250409_110325.jpg"
+            alt="Profile picture"
+            class="h-full w-full scale-125 object-cover object-[center_24%]"
+          />
+        </div>
+      </div>
+    </div>
+
+    <p class="mb-4 text-sm tracking-wider text-[#24be5d]">// hello world</p>
+
+    <h1 class="mb-6 text-2xl font-bold leading-tight sm:text-4xl md:text-6xl lg:text-7xl">
+      I'm <span class="text-[#24be5d]">IBRAHIMMAHMOUD</span>,<br />
+      <app-typewriter [texts]="heroTitles" class="text-slate-700 dark:text-slate-300" />
+    </h1>
+
+    <p class="mb-8 max-w-2xl text-lg leading-relaxed text-slate-500 dark:text-slate-300 md:text-xl">
+      I build accessible, performant, and beautiful web interfaces with Angular and TypeScript.
+      Currently seeking my first role - here's what I can do.
+    </p>
+
+    <div class="mb-12 flex flex-wrap items-center gap-4">
+      <a href="#projects" class="flowbite-btn-primary"
+        >View Projects <span class="btn-icon">↓</span></a
+      >
+      <a href="#contact" class="btn-contact-primary">Contact Me</a>
+      <a href="#resume" class="flowbite-btn-secondary">Resume</a>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+      <a
+        href="https://github.com/ibmael"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon-link"
+        aria-label="GitHub"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path
+            d="M12 2a10 10 0 0 0-3.162 19.486c.5.09.682-.216.682-.48 0-.236-.008-.86-.014-1.688-2.776.604-3.362-1.338-3.362-1.338-.454-1.156-1.108-1.464-1.108-1.464-.906-.62.07-.608.07-.608 1.002.07 1.528 1.028 1.528 1.028.89 1.526 2.336 1.085 2.904.83.09-.644.348-1.085.634-1.334-2.216-.252-4.548-1.108-4.548-4.932 0-1.09.39-1.98 1.03-2.678-.104-.252-.446-1.268.098-2.644 0 0 .84-.27 2.75 1.024a9.57 9.57 0 0 1 5 0c1.908-1.294 2.746-1.024 2.746-1.024.546 1.376.204 2.392.1 2.644.64.698 1.028 1.588 1.028 2.678 0 3.834-2.336 4.676-4.558 4.924.358.31.676.92.676 1.854 0 1.338-.012 2.418-.012 2.748 0 .266.18.574.688.478A10 10 0 0 0 12 2Z"
+          />
+        </svg>
+        github:me
+      </a>
+      <a
+        href="https://linkedin.com/in/ibrahimelghandour"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon-link"
+        aria-label="LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path
+            d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm7 0h3.83v1.64h.06c.53-1 1.82-2.06 3.75-2.06C21 8.58 22 10.56 22 14.07V21h-4v-6.13c0-1.46-.03-3.34-2.04-3.34-2.05 0-2.36 1.6-2.36 3.24V21h-4V9Z"
+          />
+        </svg>
+        linkedin:me
+      </a>
+      <a
+        href="mailto:ibrahimmahmoudelghandour@gmail.com"
+        class="social-icon-link"
+        aria-label="Email"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          class="h-5 w-5"
+          aria-hidden="true"
+        >
+          <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
+          <path d="m22 8-10 6L2 8" />
+        </svg>
+        mail:me
+      </a>
+      <a href="./Ghandour_angular.pdf" download="" class="social-icon-link" aria-label="Resume">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          class="h-5 w-5"
+          aria-hidden="true"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <path d="M14 2v6h6" />
+          <path d="M8 13h8M8 17h8M8 9h2" />
+        </svg>
+        resume
+      </a>
+    </div>
+  </div>
+
+  @for (dot of [1, 2, 3, 4, 5, 6]; track dot; let i = $index) {
+    <span
+      class="hero-float-dot absolute h-1.5 w-1.5 rounded-full bg-[#24be5d]/50 hidden md:block"
+      [style.top.%]="20 + i * 12"
+      [style.right.%]="5 + i * 7"
+      [style.animation-delay.s]="i * 0.35"
+      [style.animation-duration.s]="3 + i * 0.45"
+    ></span>
+  }
+</section>

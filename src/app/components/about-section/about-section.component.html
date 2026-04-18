@@ -1,0 +1,40 @@
+<section id="about" class="bg-[#f8f8f7] py-24 text-slate-900 dark:bg-[#0c0f12] dark:text-slate-100">
+  <div class="mx-auto max-w-3xl px-6 md:px-12 lg:px-24">
+    <app-scroll-reveal>
+      <h2 class="section-kicker">// about</h2>
+      <h3 class="section-title mb-8">About Me</h3>
+    </app-scroll-reveal>
+
+    <app-scroll-reveal [delay]="0.1">
+      <div class="space-y-4 leading-relaxed text-slate-600 dark:text-slate-300">
+        <p>
+          I'm a Junior Frontend Developer focused on building scalable and user-friendly web
+          applications using Angular and modern JavaScript technologies.
+        </p>
+
+        <p>
+          I've gained hands-on experience through real-world projects, working with Angular,
+          TypeScript, REST APIs, and state management tools. I pay strong attention to details like
+          clean component architecture, performance optimization, and responsive, accessible UI.
+        </p>
+
+        <p>
+          I'm continuously improving my skills and exploring best practices in frontend development,
+          and I'm looking for an opportunity to contribute to a professional team where I can learn,
+          grow, and deliver real value.
+        </p>
+      </div>
+    </app-scroll-reveal>
+
+    <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      @for (stat of stats; track stat.label; let i = $index) {
+        <app-scroll-reveal [delay]="0.2 + i * 0.1">
+          <article class="flowbite-card text-center transition hover:scale-105">
+            <div class="text-2xl font-bold text-[#24be5d]">{{ stat.value }}</div>
+            <div class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ stat.label }}</div>
+          </article>
+        </app-scroll-reveal>
+      }
+    </div>
+  </div>
+</section>
