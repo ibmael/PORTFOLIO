@@ -97,20 +97,38 @@ export const portfolioProjects: PortfolioProject[] = [
     tier: 'standout',
   },
   {
-    title: 'Portfolio Site (This One!)',
+    title: 'OS_CORE // ULTRA-PREMIUM 3D PORTFOLIO',
     description:
-      'A fast and accessible single-page portfolio built to present projects, process, and product thinking.',
+      'A high-end, immersive 3D portfolio experience built with Angular 21, Three.js, and GSAP, featuring real-time HUD monitoring and advanced scroll-triggered animations.',
     features: [
-      'Semantic structure and SEO-friendly sections',
-      'Dark and light theme support',
-      'Smooth section reveal animation',
-      'Responsive layout across breakpoints',
+      'Real-time HUD & system monitoring interface',
+      'Interactive 3D GLTF model integration with dynamic lighting',
+      'Complex GSAP ScrollTriggered animations & parallax effects',
+      'Custom magnetic UI directives & contextual cursor tracking',
+      'Holographic glassmorphism & neo-brutalism design language',
+      'Optimized WebGL rendering with custom section themes',
+      'Responsive, OS-like interface with dynamic glass card reveals',
+      'Signal-based state management for loading and UI transitions',
+      'Performance-optimized Three.js camera transitions on scroll',
+      'Ultra-premium aesthetics with custom particle systems and shaders',
     ],
-    tech: ['Angular', 'Tailwind v4', 'Flowbite', 'TypeScript'],
-    why: 'Your portfolio is a real product and proves execution quality, design taste, and delivery mindset.',
-    liveUrl: '#',
-    githubUrl: 'https://github.com/your-username/portfolio',
-    cover: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=340&fit=crop',
-    tier: 'standout',
+    tech: [
+      'Angular 21',
+      'Three.js',
+      'GSAP',
+      'Tailwind CSS 4',
+      'TypeScript',
+      'RxJS',
+      'Angular Signals',
+      'WebGL',
+      'ScrollTrigger',
+      'PostCSS',
+    ],
+    why: 'Demonstrates mastery of advanced front-end technologies beyond standard web apps: complex 3D scene management with Three.js, intricate timing/sequencing with GSAP, and a highly polished, interactive UI that pushes the boundaries of typical portfolio design. Shows deep understanding of performance optimization in high-fidelity graphics environments within the Angular ecosystem.',
+
+    liveUrl: 'https://os-core-interface.vercel.app/', // Replace with your actual live URL
+    githubUrl: 'https://github.com/ibmael/os-core-interface', // Replace with your actual repo URL
+    cover: './assets/3dPortifolio.png', // Or your preferred cover image path
+    tier: 'advanced',
   },
 ];
