@@ -126,9 +126,47 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     why: 'Demonstrates mastery of advanced front-end technologies beyond standard web apps: complex 3D scene management with Three.js, intricate timing/sequencing with GSAP, and a highly polished, interactive UI that pushes the boundaries of typical portfolio design. Shows deep understanding of performance optimization in high-fidelity graphics environments within the Angular ecosystem.',
 
-    liveUrl: 'https://os-core-interface.vercel.app/', // Replace with your actual live URL
-    githubUrl: 'https://github.com/ibmael/os-core-interface', // Replace with your actual repo URL
-    cover: './assets/3dPortifolio.png', // Or your preferred cover image path
+    liveUrl: 'https://os-core-interface.vercel.app/',
+    githubUrl: 'https://github.com/ibmael/os-core-interface',
+    cover: './assets/3dPortifolio.png',
     tier: 'advanced',
+  },
+  {
+    title: 'NEXUS STORE // E-COMMERCE',
+    description:
+      'A production-grade e-commerce storefront built with React 19 and Redux Toolkit, featuring a real user authentication registry, dark/light theming, and a fully responsive design system — no UI framework, pure custom CSS.',
+
+    features: [
+      'Real credential validation with a localStorage user registry (register + login)',
+      'Dark / light mode toggle with smooth CSS variable transitions and localStorage persistence',
+      'Redux Toolkit global state for auth, cart, favorites, and product catalog',
+      'React Hook Form + Yup schema validation with inline field-level errors',
+      'Protected routes with automatic redirect for unauthenticated users',
+      'Live product search and category filtering against the FakeStore API',
+      'Responsive mobile-first layout with animated hamburger drawer navigation',
+      'Theme-aware toast notification system (colors adapt to active theme)',
+      'Cart order summary with sticky sidebar and line-item management',
+      'Glassmorphic sticky navbar with cart/favorites live badge counters',
+    ],
+
+    tech: [
+      'React 19',
+      'Redux Toolkit',
+      'React Router DOM v7',
+      'React Hook Form',
+      'Yup',
+      'Vite',
+      'CSS Custom Properties',
+      'Space Grotesk',
+      'React Hot Toast',
+      'FakeStore API',
+    ],
+
+    why: 'Demonstrates real-world front-end architecture decisions beyond tutorial-level apps: secure client-side auth with a credential registry, a scalable Redux slice pattern, a fully hand-rolled design system using CSS variables (no Tailwind, no component library), and UX details like themed toasts, live badge counts, and smooth dark/light transitions — all without a single UI framework dependency.',
+
+    liveUrl: 'https://e-commerce-iti-react.vercel.app/',
+    githubUrl: 'https://github.com/ibmael/e-commerce-iti-react',
+    cover: './assets/react-iti-ecommerce.png',
+    tier: 'essential',
   },
 ];
