@@ -22,10 +22,18 @@ export class ScrollToTopComponent implements OnInit, OnDestroy {
   private onScroll = () => this.visible.set(window.scrollY > 300);
 
   ngOnInit(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     window.addEventListener('scroll', this.onScroll);
   }
 
   ngOnDestroy(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     window.removeEventListener('scroll', this.onScroll);
   }
 

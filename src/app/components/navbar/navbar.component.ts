@@ -1,5 +1,4 @@
 import { Component, signal, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../core/theme.service';
 import { ScrollSpyService } from '../../core/scroll-spy.service';
 
@@ -11,7 +10,7 @@ interface NavLink {
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {

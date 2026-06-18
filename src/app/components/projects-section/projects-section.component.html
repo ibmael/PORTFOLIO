@@ -59,26 +59,28 @@
                   <span class="text-[#24be5d]">★</span> {{ project.why }}
                 </p>
                 <div class="flex gap-4 text-xs font-medium">
-                  <a
-                    [href]="project.liveUrl"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center gap-1.5 text-[#24be5d] transition-colors hover:text-[#1a8643]"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      class="h-4 w-4"
-                      aria-hidden="true"
+                  @if (hasLiveDemo(project)) {
+                    <a
+                      [href]="project.liveUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex items-center gap-1.5 text-[#24be5d] transition-colors hover:text-[#1a8643]"
                     >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                      <polyline points="15 3 21 3 21 9" />
-                      <line x1="10" y1="14" x2="21" y2="3" />
-                    </svg>
-                    Live Demo
-                  </a>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="h-4 w-4"
+                        aria-hidden="true"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                      Live Demo
+                    </a>
+                  }
                   <a
                     [href]="project.githubUrl"
                     target="_blank"

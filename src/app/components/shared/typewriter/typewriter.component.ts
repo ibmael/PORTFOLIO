@@ -5,6 +5,10 @@ import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
   standalone: true,
   template: ` <span> {{ displayText() }}<span class="cursor-blink">|</span> </span> `,
   styles: `
+    :host {
+      display: inline-block;
+      white-space: nowrap;
+    }
     .cursor-blink {
       animation: blink 1s steps(1, end) infinite;
       margin-left: 2px;

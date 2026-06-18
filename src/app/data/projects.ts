@@ -44,7 +44,7 @@ export const portfolioProjects: PortfolioProject[] = [
 
     liveUrl: 'https://e-commerceroute.vercel.app/',
     githubUrl: 'https://github.com/ibmael/e-commerce-route',
-    cover: './assets/ecommerce.png',
+    cover: '/assets/ecommerce.png',
     tier: 'essential',
   },
   {
@@ -65,7 +65,7 @@ export const portfolioProjects: PortfolioProject[] = [
     why: 'Demonstrates modern Angular best practices with standalone components, lazy loading for performance, complex component composition for content-rich websites, and internationalization support for bilingual content. Shows proficiency in building scalable, maintainable SPAs with professional UI/UX patterns.',
     liveUrl: 'https://3dsa-photography.vercel.app',
     githubUrl: 'https://github.com/ibmael/3dsa',
-    cover: './assets/3dsa.png',
+    cover: '/assets/3dsa.png',
     tier: 'essential',
   },
   {
@@ -93,7 +93,7 @@ export const portfolioProjects: PortfolioProject[] = [
     why: 'Demonstrates real-world social app structure with auth gating, lazy routing, and API-based session handling Shows key front-end skills: route protection, modular pages, UX feedback with loaders/toasts, and persistent login state Helps recruiters see familiarity with Angular standalone components, router config, and interceptor-driven HTTP workflows',
     liveUrl: '#',
     githubUrl: 'https://github.com/ibmael/ROUTE-SOCIAL-APP',
-    cover: './assets/socialapp.png',
+    cover: '/assets/socialapp.png',
     tier: 'standout',
   },
   {
@@ -128,7 +128,7 @@ export const portfolioProjects: PortfolioProject[] = [
 
     liveUrl: 'https://os-core-interface.vercel.app/',
     githubUrl: 'https://github.com/ibmael/os-core-interface',
-    cover: './assets/3dPortifolio.png',
+    cover: '/assets/3dPortifolio.png',
     tier: 'advanced',
   },
   {
@@ -166,7 +166,7 @@ export const portfolioProjects: PortfolioProject[] = [
 
     liveUrl: 'https://e-commerce-iti-react.vercel.app/',
     githubUrl: 'https://github.com/ibmael/e-commerce-iti-react',
-    cover: './assets/react-iti-ecommerce.png',
+    cover: '/assets/react-iti-ecommerce.png',
     tier: 'essential',
   },
 ];

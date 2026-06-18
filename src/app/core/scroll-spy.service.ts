@@ -15,13 +15,19 @@ export class ScrollSpyService {
   }
 
   private initObserver() {
+    if (typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.activeSection.set(entry.target.id);
-          }
-        });
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          this.activeSection.set(visible[0].target.id);
+        }
       },
       {
         rootMargin: '-20% 0px -40% 0px', // More balanced viewport focus

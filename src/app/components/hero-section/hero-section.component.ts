@@ -9,9 +9,10 @@ import { TypewriterComponent } from '../shared/typewriter/typewriter.component';
 })
 export class HeroSectionComponent {
   readonly heroTitles = [
-    'Junior Front-End Developer',
-    'Angular Developer',
-    'Passionate About UI',
-    'Always Learning & Building',
+    'Front-End Developer',
+    'Angular & React Developer',
+    'Building Fast & Responsive Applications',
+    'Transforming Designs Into Interactive Experiences',
+    'Building Modern Digital Solutions',
   ];
 }

@@ -7,10 +7,15 @@ export class ThemeService {
   readonly theme = signal<ThemeMode>('dark');
 
   constructor() {
-    const stored = localStorage.getItem('theme');
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
+    const stored =
+      typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
     if (stored === 'light' || stored === 'dark') {
       this.theme.set(stored);
-    } else {
+    } else if (typeof window.matchMedia === 'function') {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       this.theme.set(prefersDark ? 'dark' : 'light');
     }
@@ -18,7 +23,9 @@ export class ThemeService {
     effect(() => {
       const mode = this.theme();
       document.documentElement.classList.toggle('dark', mode === 'dark');
-      localStorage.setItem('theme', mode);
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', mode);
+      }
     });
   }
 

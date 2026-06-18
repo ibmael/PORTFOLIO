@@ -23,6 +23,10 @@ export class ProjectsSectionComponent {
     return 'text-[#24be5d]';
   }
 
+  hasLiveDemo(project: PortfolioProject): boolean {
+    return !!project.liveUrl && project.liveUrl !== '#';
+  }
+
   toggleShowAll(): void {
     this.showAll.update((value) => !value);
   }

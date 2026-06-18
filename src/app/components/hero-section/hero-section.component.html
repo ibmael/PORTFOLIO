@@ -25,9 +25,16 @@
 
     <p class="mb-4 text-sm tracking-wider text-[#24be5d]">// hello world</p>
 
-    <h1 class="mb-6 text-2xl font-bold leading-tight sm:text-4xl md:text-6xl lg:text-7xl">
+    <h1 class="mb-6 text-sm font-bold leading-tight sm:text-lg md:text-xl lg:text-2xl">
       I'm <span class="text-[#24be5d]">IBRAHIMMAHMOUD</span>,<br />
-      <app-typewriter [texts]="heroTitles" class="text-slate-700 dark:text-slate-300" />
+      <span
+        class="block max-w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        <app-typewriter
+          [texts]="heroTitles"
+          class="inline-block whitespace-nowrap text-slate-700 dark:text-slate-300"
+        />
+      </span>
     </h1>
 
     <p class="mb-8 max-w-2xl text-lg leading-relaxed text-slate-500 dark:text-slate-300 md:text-xl">
@@ -90,7 +97,7 @@
         </svg>
         mail:me
       </a>
-      <a href="./Ghandour_angular.pdf" download="" class="social-icon-link" aria-label="Resume">
+      <a href="/Ghandour_angular.pdf" download="" class="social-icon-link" aria-label="Resume">
         <svg
           viewBox="0 0 24 24"
           fill="none"

@@ -37,6 +37,10 @@ export class ScrollRevealComponent implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
 
   ngAfterViewInit(): void {
+    if (typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
     const target = this.host.nativeElement.firstElementChild as HTMLElement | null;
     if (!target) return;
 
