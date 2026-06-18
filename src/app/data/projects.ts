@@ -63,7 +63,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tech: ['Angular', 'Tailwind CSS', 'Bootstrap 5', 'RxJS', 'TypeScript', 'Font Awesome Icons'],
     why: 'Demonstrates modern Angular best practices with standalone components, lazy loading for performance, complex component composition for content-rich websites, and internationalization support for bilingual content. Shows proficiency in building scalable, maintainable SPAs with professional UI/UX patterns.',
-    liveUrl: 'https://3dsa-photography.vercel.app',
+    liveUrl: 'https://3dsa-brown.vercel.app/',
     githubUrl: 'https://github.com/ibmael/3dsa',
     cover: '/assets/3dsa.png',
     tier: 'essential',
