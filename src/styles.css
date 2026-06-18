@@ -10,6 +10,7 @@ body {
   min-height: 100%;
   font-family: 'JetBrains Mono', 'Segoe UI', Roboto, Helvetica, Arial, monospace;
   scroll-behavior: smooth;
+  scroll-padding-top: 3.75rem;
   overflow-x: hidden;
   width: 100%;
 }
@@ -23,6 +24,12 @@ a {
 button,
 [role='button'] {
   cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #24be5d;
+  outline-offset: 2px;
 }
 
 *::selection {
@@ -120,6 +127,11 @@ button,
   transition: all 0.25s ease;
 }
 
+.flowbite-btn-primary:hover {
+  background: #3a4048;
+  transform: translateY(-1px);
+}
+
 .flowbite-btn-primary .btn-icon {
   font-size: 1.2rem;
   line-height: 1;
@@ -128,6 +140,10 @@ button,
 .dark .flowbite-btn-primary {
   background: #d2d2ce;
   color: #2a2e34;
+}
+
+.dark .flowbite-btn-primary:hover {
+  background: #e4e4e0;
 }
 
 .btn-contact-primary {
@@ -174,11 +190,6 @@ button,
   border-color: rgba(81, 218, 131, 0.4);
   background: transparent;
   color: #51da83;
-}
-
-.flowbite-btn-secondary:hover {
-  border-color: #24be5d;
-  color: #24be5d;
 }
 
 .social-icon-link {
@@ -246,6 +257,18 @@ button,
   50% {
     transform: translateY(-14px);
     opacity: 0.95;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-circle-entry,
+  .animate-circle-pulse,
+  .hero-float-dot {
+    animation: none !important;
   }
 }
 

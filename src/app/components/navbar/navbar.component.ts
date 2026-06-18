@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, OnDestroy, signal, inject } from '@angular/core';
 import { ThemeService } from '../../core/theme.service';
 import { ScrollSpyService } from '../../core/scroll-spy.service';
 
@@ -13,7 +13,7 @@ interface NavLink {
   imports: [],
   templateUrl: './navbar.component.html',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnDestroy {
   readonly scrollSpyService = inject(ScrollSpyService);
   readonly activeSection = this.scrollSpyService.activeSection;
 
@@ -28,10 +28,27 @@ export class NavbarComponent {
   constructor(readonly themeService: ThemeService) {}
 
   toggleMenu(): void {
-    this.open.update((value) => !value);
+    this.open.update((value) => {
+      const next = !value;
+      this.setBodyScroll(next);
+      return next;
+    });
   }
 
   closeMenu(): void {
     this.open.set(false);
+    this.setBodyScroll(false);
+  }
+
+  ngOnDestroy(): void {
+    this.setBodyScroll(false);
+  }
+
+  private setBodyScroll(locked: boolean): void {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    document.body.style.overflow = locked ? 'hidden' : '';
   }
 }

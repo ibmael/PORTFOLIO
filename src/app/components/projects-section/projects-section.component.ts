@@ -27,6 +27,14 @@ export class ProjectsSectionComponent {
     return !!project.liveUrl && project.liveUrl !== '#';
   }
 
+  visibleFeatures(project: PortfolioProject): string[] {
+    return project.features.slice(0, 4);
+  }
+
+  hiddenFeatureCount(project: PortfolioProject): number {
+    return Math.max(0, project.features.length - 4);
+  }
+
   toggleShowAll(): void {
     this.showAll.update((value) => !value);
   }

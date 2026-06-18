@@ -37,7 +37,7 @@ export class TypewriterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.timeoutId) {
+    if (this.timeoutId !== undefined && typeof window !== 'undefined') {
       window.clearTimeout(this.timeoutId);
     }
   }

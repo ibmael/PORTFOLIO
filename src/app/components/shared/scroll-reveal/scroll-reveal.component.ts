@@ -23,7 +23,8 @@ import {
       transition: opacity 0.6s ease, transform 0.6s ease;
       will-change: opacity, transform;
     }
-    .reveal.is-visible {
+    .reveal.is-visible,
+    .reveal.no-motion {
       opacity: 1;
       transform: translateY(0);
     }
@@ -43,6 +44,15 @@ export class ScrollRevealComponent implements AfterViewInit, OnDestroy {
 
     const target = this.host.nativeElement.firstElementChild as HTMLElement | null;
     if (!target) return;
+
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      this.renderer.addClass(target, 'no-motion');
+      return;
+    }
 
     this.observer = new IntersectionObserver(
       ([entry]) => {

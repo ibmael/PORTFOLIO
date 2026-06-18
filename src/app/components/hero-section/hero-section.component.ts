@@ -11,8 +11,8 @@ export class HeroSectionComponent {
   readonly heroTitles = [
     'Front-End Developer',
     'Angular & React Developer',
-    'Building Fast & Responsive Applications',
-    'Transforming Designs Into Interactive Experiences',
-    'Building Modern Digital Solutions',
+    'Fast & Responsive Apps',
+    'Interactive UI Builder',
+    'Modern Web Solutions',
   ];
 }

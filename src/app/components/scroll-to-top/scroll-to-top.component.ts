@@ -7,7 +7,7 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
     @if (visible()) {
       <button
         type="button"
-        class="fixed bottom-6 right-6 z-50 rounded-full bg-[#24be5d] p-3 text-[#0b101a] shadow-lg transition hover:opacity-90"
+        class="fixed bottom-6 right-6 z-50 rounded-full bg-[#24be5d] p-3 text-[#0b101a] shadow-lg transition hover:scale-105 hover:opacity-90 active:scale-95"
         aria-label="Scroll to top"
         (click)="scrollToTop()"
       >
