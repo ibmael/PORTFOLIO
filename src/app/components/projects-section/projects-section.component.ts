@@ -42,4 +42,10 @@ export class ProjectsSectionComponent {
   isExpanded(): boolean {
     return this.showAll();
   }
+
+  openLiveDemo(project: PortfolioProject): void {
+    if (this.hasLiveDemo(project)) {
+      window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+    }
+  }
 }

@@ -91,7 +91,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'ngx-toastr',
     ],
     why: 'Demonstrates real-world social app structure with auth gating, lazy routing, and API-based session handling Shows key front-end skills: route protection, modular pages, UX feedback with loaders/toasts, and persistent login state Helps recruiters see familiarity with Angular standalone components, router config, and interceptor-driven HTTP workflows',
-    liveUrl: '#',
+    liveUrl: 'https://route-social-app-eta.vercel.app/',
     githubUrl: 'https://github.com/ibmael/ROUTE-SOCIAL-APP',
     cover: '/assets/socialapp.png',
     tier: 'standout',

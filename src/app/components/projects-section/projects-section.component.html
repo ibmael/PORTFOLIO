@@ -14,7 +14,7 @@
     <div class="card-grid-equal grid grid-cols-1 gap-6 lg:grid-cols-2 items-stretch">
       @for (project of visibleProjects(); track project.title; let i = $index) {
         <app-scroll-reveal class="h-full flex" [delay]="i * 0.15">
-          <article class="flowbite-card group w-full h-full flex flex-col overflow-hidden">
+          <article (click)="openLiveDemo(project)" class="flowbite-card group w-full h-full flex flex-col overflow-hidden cursor-pointer">
             <div class="relative h-40 overflow-hidden">
               <img
                 [src]="project.cover"
@@ -71,6 +71,7 @@
                       [href]="project.liveUrl"
                       target="_blank"
                       rel="noopener noreferrer"
+                      (click)="$event.stopPropagation()"
                       class="flex items-center gap-1.5 text-[#24be5d] transition-colors hover:text-[#1a8643]"
                     >
                       <svg
@@ -92,6 +93,7 @@
                     [href]="project.githubUrl"
                     target="_blank"
                     rel="noopener noreferrer"
+                    (click)="$event.stopPropagation()"
                     class="flex items-center gap-1.5 text-slate-600 transition-colors hover:text-[#24be5d] dark:text-slate-300"
                   >
                     <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
