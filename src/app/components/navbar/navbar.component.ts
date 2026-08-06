@@ -1,4 +1,4 @@
-import { Component, OnDestroy, signal, inject } from '@angular/core';
+import { Component, OnDestroy, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ThemeService } from '../../core/theme.service';
 import { ScrollSpyService } from '../../core/scroll-spy.service';
 
@@ -11,6 +11,7 @@ interface NavLink {
   selector: 'app-navbar',
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent implements OnDestroy {

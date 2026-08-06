@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TypewriterComponent } from '../shared/typewriter/typewriter.component';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
   imports: [TypewriterComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './hero-section.component.html',
 })
 export class HeroSectionComponent {

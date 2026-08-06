@@ -1,9 +1,17 @@
-import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-typewriter',
   standalone: true,
   template: ` <span> {{ displayText() }}<span class="cursor-blink">|</span> </span> `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: inline-block;

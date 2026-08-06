@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-to-top',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     @if (visible()) {
       <button
@@ -14,7 +15,7 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
         ↑
       </button>
     }
-  `
+  `,
 })
 export class ScrollToTopComponent implements OnInit, OnDestroy {
   readonly visible = signal(false);

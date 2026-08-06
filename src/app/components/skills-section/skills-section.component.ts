@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ScrollRevealComponent } from '../shared/scroll-reveal/scroll-reveal.component';
 import { skillGroups } from '../../data/skills';
 
@@ -6,7 +6,8 @@ import { skillGroups } from '../../data/skills';
   selector: 'app-skills-section',
   standalone: true,
   imports: [ScrollRevealComponent],
-  templateUrl: './skills-section.component.html'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  templateUrl: './skills-section.component.html',
 })
 export class SkillsSectionComponent {
   readonly groups = skillGroups;

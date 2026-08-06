@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
@@ -22,6 +22,7 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
     ScrollToTopComponent,
   ],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
 })
 export class App {}

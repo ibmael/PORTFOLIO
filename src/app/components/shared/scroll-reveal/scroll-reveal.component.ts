@@ -5,13 +5,15 @@ import {
   Input,
   OnDestroy,
   Renderer2,
-  inject
+  inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-reveal',
   standalone: true,
   template: `<div class="reveal h-full" [style.transition-delay.s]="delay"><ng-content /></div>`,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: block;
@@ -20,7 +22,9 @@ import {
     .reveal {
       opacity: 0;
       transform: translateY(32px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
       will-change: opacity, transform;
     }
     .reveal.is-visible,
@@ -28,7 +32,7 @@ import {
       opacity: 1;
       transform: translateY(0);
     }
-  `
+  `,
 })
 export class ScrollRevealComponent implements AfterViewInit, OnDestroy {
   @Input() delay = 0;
@@ -61,7 +65,7 @@ export class ScrollRevealComponent implements AfterViewInit, OnDestroy {
           this.observer?.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -80px 0px' },
     );
 
     this.observer.observe(target);

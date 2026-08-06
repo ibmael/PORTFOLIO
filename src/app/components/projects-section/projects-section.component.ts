@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ScrollRevealComponent } from '../shared/scroll-reveal/scroll-reveal.component';
 import { PortfolioProject, portfolioProjects } from '../../data/projects';
 
@@ -6,13 +6,14 @@ import { PortfolioProject, portfolioProjects } from '../../data/projects';
   selector: 'app-projects-section',
   standalone: true,
   imports: [ScrollRevealComponent],
-  templateUrl: './projects-section.component.html'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  templateUrl: './projects-section.component.html',
 })
 export class ProjectsSectionComponent {
   private readonly showAll = signal(false);
   readonly projects = portfolioProjects;
   readonly visibleProjects = computed(() =>
-    this.showAll() ? this.projects : this.projects.slice(0, 2)
+    this.showAll() ? this.projects : this.projects.slice(0, 2),
   );
   readonly totalCount = this.projects.length;
   readonly visibleCount = computed(() => this.visibleProjects().length);
