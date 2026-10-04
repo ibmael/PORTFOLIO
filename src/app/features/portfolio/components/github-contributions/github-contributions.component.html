@@ -1,0 +1,101 @@
+<section
+  id="github"
+  class="py-24 px-6 md:px-12 lg:px-24 transition-colors"
+>
+  <div class="mx-auto max-w-5xl">
+
+    <!-- ── Section heading ──────────────────────────────────── -->
+    <app-scroll-reveal>
+      <div class="gh-heading-row">
+        <ng-icon
+          name="lucideGitGraph"
+          size="1.25rem"
+          class="gh-heading-icon"
+          aria-hidden="true"
+        />
+        <div>
+          <h2 class="gh-heading">
+            <span class="gh-dollar">$</span>&nbsp;<span appDecryptText>git log --graph</span>
+          </h2>
+          <!-- Real contribution total — only shown once loaded -->
+          @if (!isLoading() && totalContributions() !== null) {
+            <p class="gh-subline">
+              <span class="gh-total">{{ formatCount(totalContributions()!) }}</span>
+              contributions in the last year
+            </p>
+          }
+        </div>
+      </div>
+    </app-scroll-reveal>
+
+    <!-- ── Contribution graph card ──────────────────────────── -->
+    <app-scroll-reveal [delay]="0.12">
+      <div
+        class="gh-graph-card"
+        [class.gh-loading]="isLoading()"
+        role="img"
+        [attr.aria-label]="
+          isLoading()
+            ? 'Loading GitHub contribution graph'
+            : 'GitHub contribution graph for ' + username
+        "
+      >
+        <div class="gh-scroll">
+
+          <!-- Month labels row -->
+          <div class="gh-months-row" aria-hidden="true">
+            @for (m of months; track m) {
+              <span class="gh-month">{{ m }}</span>
+            }
+          </div>
+
+          <!-- Day labels + week columns -->
+          <div class="gh-body">
+            <div class="gh-day-labels" aria-hidden="true">
+              <span class="gh-day">Mon</span>
+              <span class="gh-day">Wed</span>
+              <span class="gh-day">Fri</span>
+            </div>
+
+            <div class="gh-grid" aria-hidden="true">
+              @for (week of weeks(); track $index) {
+                <div class="gh-week">
+                  @for (level of week; track $index) {
+                    <span class="gh-cell" [class]="cellClass(level)"></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Footer: profile link (left) + legend (right) -->
+          <div class="gh-footer-row">
+            <a
+              [href]="githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="gh-profile-link"
+              [attr.aria-label]="'View ' + username + ' on GitHub'"
+            >
+              <ng-icon name="bootstrapGithub" size="0.875rem" aria-hidden="true" />
+              <span>github.com/{{ username }}</span>
+              <ng-icon name="lucideExternalLink" size="0.75rem" aria-hidden="true" />
+            </a>
+
+            <div class="gh-legend" aria-label="Contribution level legend">
+              <span class="gh-legend-label">Less</span>
+              <span class="gh-cell gh-cell--l0"></span>
+              <span class="gh-cell gh-cell--l1"></span>
+              <span class="gh-cell gh-cell--l2"></span>
+              <span class="gh-cell gh-cell--l3"></span>
+              <span class="gh-cell gh-cell--l4"></span>
+              <span class="gh-legend-label">More</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </app-scroll-reveal>
+
+  </div>
+</section>

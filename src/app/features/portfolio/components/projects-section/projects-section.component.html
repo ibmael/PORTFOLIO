@@ -1,0 +1,166 @@
+<section
+  id="projects"
+  class="bg-card/40 py-24 px-6 md:px-12 lg:px-24 transition-colors"
+>
+  <div class="mx-auto max-w-5xl">
+    <app-scroll-reveal>
+      <p class="font-mono text-xs tracking-wider text-primary mb-2" appDecryptText>// projects</p>
+      <h2 class="text-3xl md:text-4xl font-bold font-mono tracking-tight text-foreground mb-3">
+        Featured Work
+      </h2>
+      <p class="mb-8 max-w-2xl font-mono text-xs text-muted-foreground">
+        Each project is chosen to demonstrate a specific job-ready skill and delivery quality.
+      </p>
+
+      <!-- Filter bar -->
+      <div class="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter projects by technology">
+        @for (filter of filters; track filter) {
+          <button
+            type="button"
+            (click)="setFilter(filter)"
+            [attr.aria-pressed]="activeFilter() === filter"
+            class="font-mono text-xs px-3 py-1.5 rounded border transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+            [class]="activeFilter() === filter
+              ? 'border-primary bg-primary/10 text-primary'
+              : 'border-border bg-secondary/60 text-muted-foreground hover:border-primary/50 hover:text-foreground'"
+          >
+            @if (filter === 'All') {
+              <span>all</span>
+            } @else {
+              <span>{{ filter }}</span>
+            }
+          </button>
+        }
+      </div>
+    </app-scroll-reveal>
+
+    @if (filteredCount() === 0) {
+      <p class="font-mono text-sm text-muted-foreground text-center py-12">
+        No projects match <span class="text-primary">{{ activeFilter() }}</span>.
+      </p>
+    } @else {
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 items-stretch">
+        @for (project of visibleProjects(); track project.title; let i = $index) {
+          <app-scroll-reveal class="h-full flex" [delay]="i * 0.12">
+            <article
+              appTiltCard
+              (click)="openLiveDemo(project)"
+              class="group relative flex h-full w-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_20px_hsl(var(--primary)/0.15)] cursor-pointer"
+            >
+              <div class="relative h-44 overflow-hidden bg-muted">
+                <img
+                  [src]="project.cover"
+                  [alt]="project.title + ' preview'"
+                  width="1200"
+                  height="580"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent"
+                ></div>
+              </div>
+
+              <div class="space-y-4 p-6 flex flex-col flex-1">
+                <div>
+                  <span class="font-mono text-xs uppercase tracking-widest" [class]="tierColor(project.tier)">
+                    {{ project.tier }}
+                  </span>
+                  <h3 class="mt-1 text-xl font-bold font-mono tracking-tight text-foreground line-clamp-2">
+                    {{ project.title }}
+                  </h3>
+                </div>
+
+                <p class="text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                  {{ project.description }}
+                </p>
+
+                <ul class="space-y-1.5 font-mono text-xs">
+                  @for (feature of visibleFeatures(project); track feature) {
+                    <li class="flex items-start gap-2 text-muted-foreground">
+                      <span class="mt-0.5 shrink-0 text-primary">▸</span>
+                      <span>{{ feature }}</span>
+                    </li>
+                  }
+                  @if (hiddenFeatureCount(project) > 0) {
+                    <li class="text-muted-foreground/60 pl-4">
+                      +{{ hiddenFeatureCount(project) }} more features
+                    </li>
+                  }
+                </ul>
+
+                <div class="flex flex-wrap gap-2">
+                  @for (item of project.tech; track item) {
+                    <span
+                      class="rounded border px-2 py-1 font-mono text-xs transition-colors duration-150"
+                      [class]="item === activeFilter()
+                        ? 'border-primary bg-primary/10 text-primary'
+                        : 'border-border bg-secondary/80 text-secondary-foreground'"
+                    >
+                      {{ item }}
+                    </span>
+                  }
+                </div>
+
+                <div class="border-t border-border pt-4 mt-auto">
+                  <div class="flex items-start gap-2 mb-4">
+                    <ng-icon name="lucideStar" size="0.875rem" class="text-primary shrink-0 mt-0.5" />
+                    <p class="text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                      {{ project.why }}
+                    </p>
+                  </div>
+                  <div class="flex gap-4 font-mono text-xs font-medium">
+                    @if (hasLiveDemo(project)) {
+                      <a
+                        [href]="project.liveUrl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        (click)="$event.stopPropagation()"
+                        class="flex items-center gap-1.5 text-primary transition-colors hover:text-primary/80"
+                      >
+                        <ng-icon name="lucideExternalLink" size="0.875rem" />
+                        Live Demo
+                      </a>
+                    }
+                    <a
+                      [href]="project.githubUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      (click)="$event.stopPropagation()"
+                      class="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      <ng-icon name="bootstrapGithub" size="0.875rem" />
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </app-scroll-reveal>
+        }
+      </div>
+
+      @if (filteredCount() > 2) {
+        <div class="mt-10 flex justify-center">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-md font-mono text-sm text-primary transition-colors hover:text-primary/80 hover:bg-primary/10 px-4 py-2"
+            (click)="toggleShowAll()"
+          >
+            <span>
+              {{ isExpanded() ? 'Show Less' : 'Show More' }}
+            </span>
+            <span class="text-xs text-muted-foreground">
+              ({{ visibleCount() }}/{{ filteredCount() }})
+            </span>
+            @if (isExpanded()) {
+              <ng-icon name="lucideChevronUp" size="1rem" />
+            } @else {
+              <ng-icon name="lucideChevronDown" size="1rem" />
+            }
+          </button>
+        </div>
+      }
+    }
+  </div>
+</section>

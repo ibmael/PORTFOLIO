@@ -1,0 +1,21 @@
+:host {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cursor-blink {
+  animation: blink 1s steps(1, end) infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink {
+    animation: none;
+  }
+}

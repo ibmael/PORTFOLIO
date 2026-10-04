@@ -1,0 +1,10 @@
+@if (visible()) {
+  <button
+    type="button"
+    class="fixed bottom-6 right-6 z-50 rounded-full bg-primary p-3 text-primary-foreground shadow-lg transition hover:scale-105 hover:opacity-90 active:scale-95 flex items-center justify-center"
+    aria-label="Scroll to top"
+    (click)="scrollToTop()"
+  >
+    <ng-icon name="lucideArrowUp" size="1.25rem" />
+  </button>
+}

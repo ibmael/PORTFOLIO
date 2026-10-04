@@ -1,0 +1,79 @@
+<section
+  id="experience"
+  class="py-24 px-6 md:px-12 lg:px-24 transition-colors"
+>
+  <div class="mx-auto max-w-5xl">
+    <app-scroll-reveal>
+      <p class="font-mono text-xs tracking-wider text-primary mb-2" appDecryptText>// experience</p>
+      <h2 class="text-3xl md:text-4xl font-bold font-mono tracking-tight text-foreground mb-8">
+        Experience &amp; Training
+      </h2>
+    </app-scroll-reveal>
+
+    <div class="timeline">
+      @for (entry of entries; track entry.company; let i = $index) {
+        <app-scroll-reveal [delay]="i * 0.15">
+          <div class="timeline-item">
+            <!-- Timeline dot + vertical line -->
+            <div class="timeline-rail" aria-hidden="true">
+              <span class="timeline-dot"></span>
+              <span class="timeline-line"></span>
+            </div>
+
+            <!-- Card content -->
+            <div class="timeline-body">
+              <article class="rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 experience-card">
+                <header class="experience-header">
+                  <div>
+                    <h3 class="experience-role">{{ entry.role }}</h3>
+                    <p class="experience-company">{{ entry.company }}</p>
+                  </div>
+                  <time class="experience-period">{{ entry.period }}</time>
+                </header>
+
+                <ul class="experience-list" role="list">
+                  @for (item of entry.responsibilities; track item) {
+                    <li class="experience-list-item">
+                      <span class="experience-bullet" aria-hidden="true">▸</span>
+                      <span>{{ item }}</span>
+                    </li>
+                  }
+                </ul>
+              </article>
+            </div>
+          </div>
+        </app-scroll-reveal>
+      }
+    </div>
+
+    <!-- Verified Credential Subsection (ITI) -->
+    <app-scroll-reveal [delay]="0.2">
+      <div class="mt-8 border-t border-border pt-8">
+        <h3 class="font-mono text-xs text-primary uppercase tracking-widest mb-4">
+          // Verified Training &amp; Credentials
+        </h3>
+        <div class="rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <h4 class="font-bold text-foreground">
+              Frontend &amp; Cross-Platform Mobile App Development Trainee
+            </h4>
+            <span class="font-mono text-xs text-primary">Mar 2025 — Aug 2025</span>
+          </div>
+          <p class="font-mono text-xs text-muted-foreground mb-3">
+            Information Technology Institute (ITI)
+          </p>
+          <p class="text-sm text-secondary-foreground leading-relaxed mb-4">
+            Intensive practical training covering modern web engineering, component architecture, state management, mobile development, and collaborative team delivery.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            @for (tag of ['Angular', 'React', 'React Native', 'Flutter', 'REST APIs', 'TypeScript']; track tag) {
+              <span class="rounded border border-border bg-secondary/80 px-2.5 py-1 font-mono text-xs text-secondary-foreground">
+                {{ tag }}
+              </span>
+            }
+          </div>
+        </div>
+      </div>
+    </app-scroll-reveal>
+  </div>
+</section>

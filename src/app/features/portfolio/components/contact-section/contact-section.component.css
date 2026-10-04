@@ -1,0 +1,91 @@
+.contact-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: 0.375rem;
+  background-color: var(--clr-primary);
+  color: hsl(var(--primary-foreground));
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 10px hsl(var(--primary) / 0.25);
+  max-width: calc(100vw - 6.5rem);
+}
+
+.contact-email-btn:hover,
+.contact-email-btn:focus-visible {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px hsl(var(--primary) / 0.35);
+}
+
+.contact-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--clr-border);
+  background-color: hsl(var(--card));
+  color: var(--clr-muted-fg);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.contact-copy-btn:hover,
+.contact-copy-btn:focus-visible {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  transform: translateY(-1px);
+}
+
+.social-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--clr-muted-fg);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-inline-link:hover,
+.social-inline-link:focus-visible {
+  color: var(--clr-primary);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .contact-email-btn {
+    font-size: 0.75rem;
+    padding: 0 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-email-btn,
+  .contact-copy-btn,
+  .social-inline-link {
+    transition: none;
+    transform: none !important;
+  }
+}

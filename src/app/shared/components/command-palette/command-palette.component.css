@@ -1,0 +1,45 @@
+.palette-overlay {
+  animation: overlayFadeIn 0.15s ease-out;
+}
+
+.palette-box {
+  animation: paletteScaleIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.command-row {
+  border: 1px solid transparent;
+  color: hsl(var(--foreground));
+}
+
+.command-row--active {
+  background: hsl(var(--primary) / 0.12);
+  border-color: hsl(var(--primary) / 0.35);
+  color: var(--clr-primary);
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes paletteScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette-overlay,
+  .palette-box {
+    animation: none;
+  }
+}

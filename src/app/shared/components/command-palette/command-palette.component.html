@@ -1,0 +1,115 @@
+@if (isOpen()) {
+  <div
+    class="palette-overlay fixed inset-0 z-50 flex items-start justify-center pt-[12vh] sm:pt-[16vh] px-4 bg-black/65 backdrop-blur-xs"
+    (click)="onBackdropClick($event)"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Command Palette"
+  >
+    <div
+      class="palette-box w-full max-w-[620px] max-h-[90dvh] flex flex-col rounded-lg border border-border bg-card shadow-[0_0_40px_hsl(var(--primary)/0.15)] overflow-hidden transition-all duration-200"
+    >
+      <!-- Search Input Area -->
+      <div class="flex items-center gap-3 border-b border-border bg-secondary/35 px-4 py-3.5">
+        <ng-icon
+          name="lucideTerminal"
+          size="1.15rem"
+          class="text-primary shrink-0"
+          aria-hidden="true"
+        />
+        <input
+          #searchInput
+          type="text"
+          [value]="query()"
+          (input)="onQueryInput($event)"
+          placeholder="Type a command or search..."
+          aria-label="Search commands"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="true"
+          aria-controls="command-palette-results"
+          [attr.aria-activedescendant]="'cmd-opt-' + selectedIndex()"
+          class="w-full bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden"
+        />
+        <kbd
+          class="hidden sm:inline-flex items-center rounded border border-border bg-card px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground uppercase shadow-2xs select-none"
+        >
+          ESC
+        </kbd>
+      </div>
+
+      <!-- Command Results List -->
+      <div
+        #resultsList
+        id="command-palette-results"
+        role="listbox"
+        class="flex-1 min-h-0 max-h-[340px] overflow-y-auto p-2 space-y-1"
+      >
+        @if (filteredCommands().length === 0) {
+          <div class="py-8 text-center font-mono text-xs text-muted-foreground">
+            No commands found.
+          </div>
+        } @else {
+          @for (cmd of filteredCommands(); track cmd.id; let i = $index) {
+            <button
+              type="button"
+              [id]="'cmd-opt-' + i"
+              role="option"
+              [attr.aria-selected]="selectedIndex() === i"
+              (click)="executeItem(cmd)"
+              (mouseenter)="setSelectedIndex(i)"
+              class="command-row flex w-full items-center justify-between rounded-md px-3 py-2.5 font-mono text-xs text-left transition-colors duration-150"
+              [class.command-row--active]="selectedIndex() === i"
+            >
+              <div class="flex items-center gap-2.5 min-w-0">
+                <ng-icon
+                  [name]="cmd.icon"
+                  size="1rem"
+                  class="shrink-0 transition-colors"
+                  [class.text-primary]="selectedIndex() === i"
+                  [class.text-muted-foreground]="selectedIndex() !== i"
+                  aria-hidden="true"
+                />
+                <span class="truncate">
+                  @if (cmd.id === 'copy-email' && emailCopied()) {
+                    <span class="text-primary font-semibold">Email copied ✓</span>
+                  } @else {
+                    {{ cmd.title }}
+                  }
+                </span>
+              </div>
+
+              <span
+                class="ml-2 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-mono text-muted-foreground transition-colors"
+                [class.bg-card]="selectedIndex() === i"
+                [class.text-foreground]="selectedIndex() === i"
+              >
+                {{ cmd.hint }}
+              </span>
+            </button>
+          }
+        }
+      </div>
+
+      <!-- Footer Help Hints -->
+      <div
+        class="flex items-center justify-between border-t border-border bg-secondary/40 px-4 py-2 text-[11px] font-mono text-muted-foreground"
+      >
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-1">
+            <kbd class="rounded border border-border bg-card px-1 py-0.5 text-[10px]">↑↓</kbd>
+            Navigate
+          </span>
+          <span class="inline-flex items-center gap-1">
+            <kbd class="rounded border border-border bg-card px-1 py-0.5 text-[10px]">↵</kbd>
+            Select
+          </span>
+        </div>
+        <span class="inline-flex items-center gap-1">
+          <kbd class="rounded border border-border bg-card px-1 py-0.5 text-[10px]">ESC</kbd>
+          Close
+        </span>
+      </div>
+    </div>
+  </div>
+}

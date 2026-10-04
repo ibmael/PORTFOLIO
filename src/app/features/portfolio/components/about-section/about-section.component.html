@@ -1,0 +1,128 @@
+<section id="about" class="py-24 px-6 md:px-12 lg:px-24 transition-colors">
+  <div class="mx-auto max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- Left Column: Content -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-5">
+        <app-scroll-reveal>
+          <p class="font-mono text-xs tracking-wider text-primary mb-2" appDecryptText>
+            // about me
+          </p>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono tracking-tight text-foreground leading-tight"
+          >
+            Building thoughtful interfaces,<br class="hidden sm:inline" />
+            <span class="text-primary">one component at a time.</span>
+          </h2>
+        </app-scroll-reveal>
+
+        <app-scroll-reveal [delay]="0.1">
+          <div class="space-y-3.5 leading-relaxed text-secondary-foreground text-sm sm:text-base">
+            <p>
+              I'm a Junior Frontend Developer focused on building scalable, accessible, and
+              performant web applications with Angular, TypeScript, and modern frontend tools.
+            </p>
+            <p>
+              I enjoy turning complex requirements into clean, reusable interfaces, with particular
+              attention to component architecture, state management, responsive design, and user
+              experience.
+            </p>
+          </div>
+
+          <!-- Terminal-style availability status line -->
+          <div class="pt-2">
+            <div
+              class="inline-flex flex-wrap items-center gap-2 rounded-md border border-border bg-card/60 px-3.5 py-2 font-mono text-xs text-muted-foreground shadow-xs"
+            >
+              <span class="text-primary font-bold">&gt;</span>
+              <span>currently_open_to</span>
+              <span class="text-muted-foreground">=</span>
+              <span class="text-primary font-medium">&quot;Frontend opportunities&quot;</span>
+            </div>
+          </div>
+        </app-scroll-reveal>
+      </div>
+
+      <!-- Right Column: developer.ts Code Card -->
+      <div class="lg:col-span-5 relative w-full group">
+        <!-- Subtle primary glow behind card -->
+        <div
+          class="pointer-events-none absolute -inset-2 rounded-xl bg-primary/10 blur-2xl opacity-40 transition-opacity duration-500 group-hover:opacity-70"
+          aria-hidden="true"
+        ></div>
+
+        <app-scroll-reveal [delay]="0.18">
+          <div
+            class="relative rounded-lg border border-border bg-card overflow-hidden shadow-xl transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl"
+          >
+            <!-- macOS-style header -->
+            <div
+              class="flex items-center justify-between border-b border-border bg-secondary/50 px-4 py-2.5"
+            >
+              <div class="flex items-center gap-1.5">
+                <span
+                  class="h-2.5 w-2.5 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-red-500/70"
+                ></span>
+                <span
+                  class="h-2.5 w-2.5 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-amber-500/70"
+                ></span>
+                <span
+                  class="h-2.5 w-2.5 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-emerald-500/70"
+                ></span>
+              </div>
+              <span class="font-mono text-xs text-muted-foreground">developer.ts</span>
+            </div>
+
+            <!-- Code editor body with semantic syntax tokens -->
+            <div class="p-5 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto">
+              <div class="mb-1 text-muted-foreground">
+                <span class="text-primary font-semibold">const</span>
+                <span class="text-foreground font-semibold"> developer</span>
+                <span class="text-muted-foreground"> = &#123;</span>
+              </div>
+
+              <div class="pl-4 space-y-1.5">
+                <div>
+                  <span class="text-muted-foreground">role:</span>
+                  <span class="text-primary"> &quot;Frontend Developer&quot;</span><span class="text-muted-foreground">,</span>
+                </div>
+
+                <div>
+                  <span class="text-muted-foreground">focus:</span>
+                  <span class="text-muted-foreground"> [</span><span class="text-primary">&quot;Angular&quot;</span><span class="text-muted-foreground">, </span><span class="text-primary">&quot;TypeScript&quot;</span><span class="text-muted-foreground">],</span>
+                </div>
+
+                <div>
+                  <span class="text-muted-foreground">interests: [</span>
+                  <div class="pl-4 space-y-0.5">
+                    <div>
+                      <span class="text-primary">&quot;Clean Architecture&quot;</span><span class="text-muted-foreground">,</span>
+                    </div>
+                    <div>
+                      <span class="text-primary">&quot;Performance&quot;</span><span class="text-muted-foreground">,</span>
+                    </div>
+                    <div>
+                      <span class="text-primary">&quot;Accessible UI&quot;</span>
+                    </div>
+                  </div>
+                  <span class="text-muted-foreground">],</span>
+                </div>
+
+                <div>
+                  <span class="text-muted-foreground">learning:</span>
+                  <span class="text-primary"> &quot;Always&quot;</span><span class="text-muted-foreground">,</span>
+                </div>
+
+                <div>
+                  <span class="text-muted-foreground">available:</span>
+                  <span class="text-amber-500 dark:text-amber-400 font-semibold"> true</span>
+                </div>
+              </div>
+
+              <div class="mt-1 text-muted-foreground">&#125;;</div>
+            </div>
+          </div>
+        </app-scroll-reveal>
+      </div>
+    </div>
+  </div>
+</section>
